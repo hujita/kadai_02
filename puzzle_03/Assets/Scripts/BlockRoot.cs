@@ -364,7 +364,7 @@ public class BlockRoot : MonoBehaviour {
 			dy = y;
 		}
 		
-		for (int y = uy + 1; y > Block.BLOCK_NUM_Y; y++) {
+		for (int y = uy + 1; y < Block.BLOCK_NUM_Y; y++) {
 			BlockControl next_block = this.blocks [start.i_pos.x, y];
 			if (next_block.color != start.color) {
 				break;
@@ -393,6 +393,7 @@ public class BlockRoot : MonoBehaviour {
 				ret = true;
 			}
 		} while(false);
+
 		return(ret);
 	}
 	
