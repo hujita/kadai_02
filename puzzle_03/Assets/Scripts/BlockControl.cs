@@ -7,7 +7,7 @@ public class Block {
 	public static float COLLISION_SIZE = 0.9f;
 	public static float COLLISION_SPACE = 0.2f;
 	// Time to Vanish
-	public static float VANISH_TIME = 3.0f;
+	public static float VANISH_TIME = 0.2f;
 	// Grid
 	public struct iPosition {
 		public int x;
