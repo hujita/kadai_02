@@ -171,7 +171,7 @@ public class BlockControl : MonoBehaviour {
 			this.position_offset = Vector3.Lerp (this.position_offset_initial, Vector3.zero, rate);
 			break;
 		case Block.STEP.FALL:
-			this.fall.velocity += Physics.gravity.y * Time.deltaTime * 0.3f;
+			this.fall.velocity += Physics.gravity.y * Time.deltaTime * 1.5f;
 			this.position_offset.y += this.fall.velocity * Time.deltaTime;
 			if(this.position_offset.y < 0.0f) {
 				this.position_offset.y = 0.0f;

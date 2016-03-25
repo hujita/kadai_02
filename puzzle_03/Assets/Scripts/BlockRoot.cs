@@ -8,10 +8,14 @@ public class BlockRoot : MonoBehaviour {
 	private GameObject main_camera = null;
 	private BlockControl grabbed_block = null;
 
+	private ScoreCounter score_counter = null;
+	protected bool is_vanishing_prev = false;
+
 	
 	// Use this for initialization
 	void Start () {
 		this.main_camera = GameObject.FindGameObjectWithTag ("MainCamera");
+		this.score_counter = this.gameObject.GetComponent<ScoreCounter> ();
 	}
 	
 	// Update is called once per frame
@@ -75,10 +79,17 @@ public class BlockRoot : MonoBehaviour {
 			}
 				
 			if (ignite_count > 0) {
+				if(! this.is_vanishing_prev) {
+					this.score_counter.clearIgniteCount();
+				}
+				this.score_counter.addIgniteCount(ignite_count);
+				this.score_counter.updateTotalScore();
+
 				int block_count = 0;
 				foreach (BlockControl block in this.blocks) {
 					if (block.isVanishing ()) {
 						//block.rewindVanishTimer ();
+						block_count++;
 					}
 				}
 			}
@@ -122,6 +133,7 @@ public class BlockRoot : MonoBehaviour {
 				}
 			}
 		} while(false);
+		this.is_vanishing_prev = is_vanishing;
 	}
 	
 	// Creating blocks and deploy

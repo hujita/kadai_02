@@ -75,6 +75,7 @@
 -define:UNITY_EDITOR_OSX
 -define:ENABLE_IOS_ON_DEMAND_RESOURCES
 -define:ENABLE_IOS_APP_SLICING
+'Assets/ScoreCounter.cs'
 'Assets/Scripts/BlockControl.cs'
 'Assets/Scripts/BlockRoot.cs'
 'Assets/Scripts/SceneControl.cs'
